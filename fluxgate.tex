@@ -1,0 +1,123 @@
+\documentclass[a4paper,10pt]{report}
+%\usepackage[utf8x]{inputenc}
+\usepackage{amsmath,amsfonts,amssymb,amscd,amsthm,xspace}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage{wasysym}
+\usepackage{vmargin}
+\usepackage{rotating}
+\setmarginsrb           { 3.0cm}  % left margin
+                        { 2.0cm}  % top margin
+                        { 2.0cm}  % right margin
+                        { 2.0cm}  % bottom margin
+                        {  11pt}  % head height
+                        {0.25in}  % head sep
+                        {   9pt}  % foot height
+                        { 0.3in}  % foot sep
+
+% Title Page
+\title{Magnetometers}
+\author{Thinawanga Tshilande}
+
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+An investigation was carried out to look for a suitable commercial replacement of the
+currently available three-axis fluxgate magnetometers, LEMI 011B and 011T. 
+\end{abstract}
+\section{Three-axis Fluxgate Magnetometer}
+Research done in previous years has led
+to the shift from analogue feedback control of the signals from the sensor to
+digitisation, which comes with the benefit of advanced signal processing and lowering
+of power consumption
+(Forslund et al., 2007)\par
+There are different types of fluxgate sensor designs, such as the rod core, ring core
+and race-
+track designs.\par
+The ability of the fluxgate
+sensors to withstand temperature variation is a merit for use in space applications
+
+
+
+\begin{sidewaystable}[h!]
+\caption{\textbf{Three-Axis Fluxgate Magnetometers available at
+appliedphysics.com}}
+\label{RKF78} % title name of
+\centering
+% centering table
+\resizebox{1.0\textwidth}{!}{%
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+\hline
+Model&$533$&$534$&$535$&$536$&$113D$&$534D$&$539$&$1540$\\ \hline
+Analog/Digital&Analog&Analog&Analog&Analog&Digital&Digital&Digital&Digital\\\hline
+Range& $\pm 10^5\ nT$&$\pm 10^5\ nT$&$\pm5\times10^5\ nT$&$\pm 10^5\ nT$&$\pm60,000\
+nT$
+&$\pm60,000\ nT$&$\pm 65\ \mu T$&$\pm 65\ \mu T$\\
+&&&&&$\pm100,000\ nT$ optional&$\pm100,000\ nT$ optional&$\pm 100\ \mu T$
+optional&\\\hline 
+Input&$\pm 5$ VDC at 30 $mA$&$\pm5\ VDC\ at\ 30\ mA,\ \pm7\ to\ \pm12\ VDC\ at\ 20\ mA$
+&$\pm15\ V$&$\pm15\ V$&$+4.9\ to\ +15\ VDC\ at\ 80\ mA$
+&$+4.9\ VDC\ to\ +15\ VDC\ at\ 50\ mA$&$+4.95\ to\ +9\ VDC\ at\ 50\ mA$&$+4.95\ to\
++9\ VDC\ at\ 55 mA$\\\hline 
+Linearity&$ \pm 0.1 \%$ full scale (FS)&$ \pm 0.1 \%$
+FS&$\pm0.2\%$&$\pm0.2\%$&&&$\pm 0.1 \%\ FS$&$\pm0.05 \%\ FS$\\\hline
+Noise Level&$<0.3\ nT\ RMS/Hz^{\frac{1}{2}}$&$0.3\ nT\
+RMS/Hz^{\frac{1}{2}}$&$0.3\ nT\
+RMS/Hz^{\frac{1}{2}}$&$0.03\ nT\ RMS/Hz^{\frac{1}{2}}$
+&$\pm2\ nT$&$\pm2\ nT$&$0.3\ nT\ RMS/Hz^{\frac{1}{2}}$&$\pm 0.5\ nT$\\
+&&$3\times10^{11}\ nT\ RMS/Hz^{\frac{1}{2}}$&$3\times10^{11}\ nT\
+RMS/Hz^{\frac{1}{2}}$&$3\times10^{10}\ nT\
+RMS/Hz^{\frac{1}{2}}$&&&$3\times10^{11}\ nT\ RMS/Hz^{\frac{1}{2}}$&\\\hline
+Sensitivity&$\pm 4 \times 10^{-5}\ V/nT $ &$\pm 4 \times 10^{-5}\ V/nT
+$&$\pm2\times 10^{-5}\ V/nT$&$\pm 10\times 10^{-5} V/nT$&&&&\\\hline
+Total Power Consumption&$300\ mW$&$200\ mW$&$825\ mW$&$900\ mW$&&&&\\\hline
+Resolution&&&&&$2\ nT$&$2\ nT$&&$10\ 000\ nT$\\\hline 
+Accuracy&&&&&$\pm1\ \%\ FS$&$\pm1\ \%\ FS$&$\pm1\ \%\ FS$&$\pm0.5 \%\ FS
+$\\\hline  
+\end{tabular}
+}
+\label{tab:RKF78}
+\end{sidewaystable}
+LN = low noise 
+SN = standard noise
+LSF = Least Square Fit
+
+\begin{sidewaystable}[h!]
+\caption{\textbf{Three-Axis Fluxgate Magnetometers available at
+bartington.com}}
+\label{RKF78} % title name of
+\centering
+% centering table
+\resizebox{1.0\textwidth}{!}{%
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+\hline
+Model&Mag657&Mag658&Spacemag&Mag628/629&Mag648&&&\\
+&&&&and Mag669&Mag649&&&\\\hline
+Anolog/Digital&Digital&Digital&Analog&Analog&Analog&&&\\\hline
+Range&$\pm 524\ \mu T$&$\pm524.287\ \mu T$&$\pm100\ \mu T\ FS$&$\pm75\
+\mu T\ FS$&$\pm 60\ \mu T\ or\ \pm100\ \mu T$&&&\\\hline
+Resolution&$62.5\ pT/bit$&&&&&&&\\\hline
+Noise level&&&&$<8\ pT\ RMS/\surd Hz\ at\ 1Hz$&$\leqslant10\ pT\ RMS/\surd Hz\ at\
+1Hz LN$&&&\\
+&&&&$<4pT\ RMS/\surd Hz\ at\ 1Hz$&$Btwn\ 10\ and\ 20\ pT\ RMS/\surd Hz\ at\ 1Hz\ SN$
+&&&\\\hline
+Linearity error&$0.01 \%\ (LSF)$&$0.01 \%\ (LSF)$&$0.0033\ \%
+(LSF)$&$< 0.015\ \%\ FS$&$0.0033 \% \ LSF$&&&\\\hline
+Operating temperature&$-10^\circ C\ to\ +40^\circ C$&$-30^\circ C\ to\
++40^\circ C$&$-55^\circ C\ to\ +125^\circ C$&&$-40^\circ C\ to\ +70^\circ C$&&&\\\hline
+Supply voltage&$+10\ to\ +20V$&$+10\ to\ +20V$&$\pm15V\ (5 \%)$&$\pm15V\
+(\pm 5 \%)$&$+3.5V\ to\ 15V$&&&\\
+&&&&$+28V\ (\pm10 \%)$&&&&\\\hline
+Power requirement&$<1\ W$&&&$<1W$&&&&\\
+&&&&$<2W$&&&&\\\hline
+Current consumption&&$65\ mA\ at\ 10\ V$&$+38\ mA, -15\ mA$&&$4\ mA\ max$
+&&&\\
+&&&&&$5.5\ mA\ max$&&&\\\hline
+\end{tabular}
+}
+\label{tab:RKF78}
+\end{sidewaystable}
+
+\end{document}          
