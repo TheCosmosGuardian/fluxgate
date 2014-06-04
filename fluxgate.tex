@@ -1,11 +1,13 @@
 \documentclass[a4paper,10pt]{report}
 %\usepackage[utf8x]{inputenc}
-\usepackage{amsmath,amsfonts,amssymb,amscd,amsthm,xspace}
+\usepackage{amsmath,amsfonts,amssymb,amscd,amsthm,xspace,textcomp}
 \usepackage{longtable}
 \usepackage{graphicx}
+\usepackage{pdfpages}
 \usepackage{wasysym}
 \usepackage{hyperref}
 \usepackage{rotating}
+\hypersetup{urlcolor=blue, colorlinks=true} 
 \makeatletter
 \newcommand*{\myfnsymbolsingle}[1]{%
   \ensuremath{%
@@ -49,7 +51,7 @@
                         { 0.3in}  % foot sep
 
 % Title Page
-\title{Technical Report: Three-axis Fluxgate Magnetometers}
+\title{Technical Report: Commercial Three-axis Fluxgate Magnetometers}
 \author{Thinawanga Tshilande}
 
 
@@ -60,14 +62,19 @@
 An investigation was carried out to look for a suitable commercial replacement of the
 currently available three-axis fluxgate magnetometers, LEMI (Laboratory of
 Electromagnetic Innovations) 011B and 011T. This report
-presents a list of currently available fluxgate magnetometers, offered by Bartington 
-Instruments and Applied Physics Systems. The price list of the magnetometers
+presents a list of currently available fluxgate magnetometers, offered by different
+laboratories and institutions. The price list of the magnetometers
 recommended by each company as suitable candidates to replace LEMI 011 are shown. 
 \end{abstract}
 \section*{Commercially Available Fluxgate Magnetometers}
-A list of fluxgate magnetometer sensors available at the LEMI is shown in Figure
-\ref{Lemi}\footnote{See \url{http://www.lemisensors.com/?q=fluxgate}}. Quotes will be
-requested if the replacement of a LEMI product with another is necessary.
+The following subsections contain a list of fluxgate magnetometers available from 
+different industries and laboratories.
+\subsection*{LEMI Fluxgate Magnetometers}
+LEMI was established in 2008 with the focus of development and production of high
+quality electromagnetic (EM) sensors for the geophysical industry. Its located in
+Lviv, Ukraine. A list of fluxgate magnetometer sensors available at the LEMI is shown
+in Figure \ref{Lemi}\footnote{See \url{http://www.lemisensors.com/?q=fluxgate}}. Quotes
+will be requested if the replacement of a LEMI product with another is necessary.
 \begin{figure}[!h]
 \centering
 \includegraphics[width = 6.3in, height=5.0in]{Lemi.png}
@@ -75,90 +82,221 @@ requested if the replacement of a LEMI product with another is necessary.
 LEMI}}
 \label{Lemi}
 \end{figure}
-
-Table \ref{applied} lists fluxgate magnetometers offered by the Applied Physics
-Systems. 
+\subsection*{Bartington Instruments}
+Bartington Instruments\footnote{See \url{http://www.bartington.com}} is located in 
+Thorney Leys Business Park in Witney, near Oxford, England. They design and
+manufacture high precision fluxgate magnetometers, gradiometers, magnetic
+susceptibility instruments and associated data processing equipment. Their fluxgate
+magnetometers and their specifications are listed in
+Table \ref{bart} and Table \ref{bart2}. A quote was requested for best space qualified
+fluxgate
+magnetometers and suitable candidates to replace LEMI 011. Bartington recommended 
+Mag648($\sim\pounds$600=R10422.06) or Mag566 ($\sim\pounds$390 = R6772.15) due to
+their low power consumption. According to them, those 2 magnetometers are completely
+sealed in resin but have not been pre-qualified for space-use. However, Mag566 has
+been incorporated on CubeSat according to this link:
+\url{http://www.bartington.com/news/mag566-in-satellite-for-ionosphere-study}.
+\par
+Spacemag (price starting from $\sim\pounds$5500 = R95504.75) has been pre-qualified for
+space-use and includes components that can be found in different radiation hardened
+ratings. ``However choosing those types of components has limited quite significantly
+what is achievable in terms of size and power specification.''
+\begin{table}
+\caption{\textbf{Digital Three-Axis Fluxgate Magnetometer sensors available at
+Bartington Instruments}}
+\label{bart} % title name of
+\centering
+% centering table
+\begin{tabular}{|l|l|l|}
+\hline
+Model&Mag657&Mag658\\\hline
+Range&$\pm 524,000\ nT$&$\pm524,287\  nT$\\\hline
+Resolution&$0.0625\ nT/bit$&\\\hline
+Linearity error&$0.01 \%\ (LSF)$&$0.01 \%\ (LSF)$\\\hline
+Operating temperature&$-10^\circ C\ to\ +40^\circ C$&$-30^\circ C\ to\
++40^\circ C$\\\hline
+Supply voltage&$+10\ to\ +20V$&$+10\ to\ +20V$\\\hline
+Power requirement&$<1\ W$&\\\hline
+Current consumption&&$65\ mA\ at\ 10\ V$\\\hline
+\end{tabular}
+\end{table}
 \begin{table}[h!]
-\caption{\textbf{Three-Axis Fluxgate Magnetometer sensors available at
+\caption{\textbf{Analog Three-Axis Fluxgate Magnetometer sensors available at
+Bartington Instruments}}
+\label{bart2} % title name of
+\centering
+% centering table
+\resizebox{1.0\textwidth}{!}{%
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+Model&Spacemag&Mag628/629&Mag648&Mag566\\
+&&and Mag669&Mag649&\\\hline
+Range&$\pm100,000\  nT\ FS$&$\pm75,000\ nT\
+FS$&$\pm 60,000\  nT\ or$&$\pm100,000 nT$\\
+&&&$\pm100,000\  nT$&\\\hline
+Noise level (at 1Hz)&&$<0.008\ nT$&$\leqslant0.01\ nT
+$&\\
+&&$ RMS/\surd Hz$&$RMS/\surd Hz\ LN$&\\
+&&$<0.004\ nT$&$0.01\ and\ 0.02\ nT$
+&\\
+&&$RMS/\surd Hz$&$ RMS/\surd Hz\ SN$&\\\hline
+Linearity error&$0.0033\ \%
+(LSF)$&$< 0.015\ \%\ FS$&$0.0033 \% \ LSF$&$<50ppm$\\\hline
+Operating temperature&$-55^\circ C\ to\ +125^\circ C$&&$-40^\circ C\ to\ +70^\circ
+C$&$-32^\circ\ to\ +50^\circ$\\\hline
+Supply voltage&$\pm15V\ (5 \%)$&$\pm15V\
+(\pm 5 \%)$&$+3.5V\ to\ 15V$&$\pm4.8V\ to\ \pm5.2V$\\
+&&$+28V\ (\pm10 \%)$&&\\\hline
+Power requirement&&$<1W$&&\\
+&&$<2W$&&$0.02W$\\\hline
+Current consumption&$+38\ mA, -15\ mA$&&$4\ mA\ max$
+&\\
+&&&$5.5\ mA\ max$&\\\hline
+Price&$R95504.75$&&$R10422.06$&$R6772.15$\\\hline
+\end{tabular}
+}
+\end{table}
+\subsection*{Applied Physics Systems}
+Applied Physics Systems\footnote{See \url{http://www.appliedphysics.com}} was founded
+in 1976 by Bill Goodman. They manufacture sensors and systems used in oil
+field,industrial and scientific applications. They are located in Califonia, USA.  
+\begin{table}[h!]
+\caption{\textbf{Analog Three-Axis Fluxgate Magnetometer sensors available at
 Applied Physics Systems}}
  \label{applied} % title name of
 \centering
 % centering table
 \resizebox{1.0\textwidth}{!}{%
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+\begin{tabular}{|l|l|l|l|l|}
 \hline
-Model&$533$&$534$&$535$&$536$&$113D$&$534D$&$539$&$1540$\\ \hline
-Analog/Digital&Analog&Analog&Analog&Analog&Digital&Digital&Digital&Digital\\\hline
+Model&$533$&$534$&$535$&$536$\\ \hline
 Range& $\pm 100,000\ nT$&$\pm 100,000\ nT$&$\pm500,000\ nT$&$\pm 100,000\
-nT$&$\pm60,000\ nT$
-&$\pm60,000\ nT$&$\pm 65,000\ nT$&$\pm 65,000\ nT$\\
-&&&&&$\pm100,000\ nT$ optional&$\pm100,000\ nT$ optional&$\pm 100,000\ nT$
-optional&\\\hline 
+nT$\\\hline 
 Input&$\pm 5$ VDC at 30 $mA$&$\pm5\ VDC\ at\ 30\ mA,$
-&$\pm15\ V$&$\pm15\ V$&$+4.9\ to\ +15\ VDC\ at\ 80\ mA$
-&$+4.9\ to\ +15\ VDC\ at\ 50\ mA$&$+4.95\ to\ +9\ VDC\ at\ 50\ mA$&$+4.95\ to\
-+9\ VDC\ at\ 55 mA$\\ 
-&&$\pm7\ to\ \pm12\ VDC\ at\ 20\ mA$&&&&&&\\\hline
+&$\pm15\ V$&$\pm15\ V$\\ 
+&&$\pm7\ to\ \pm12\ VDC\ at\ 20\ mA$&&\\\hline
 Linearity&$ \pm 0.1 \%$ FS&$ \pm 0.1 \%$
-FS&$\pm0.2\%$&$\pm0.2\%$&&&$\pm 0.1 \%\ FS$&$\pm0.05 \%\ FS$\\\hline
+FS&$\pm0.2\%$&$\pm0.2\%$\\\hline
 Noise Level&$<0.3\ nT\ RMS/Hz^{\frac{1}{2}}$&$0.3\ nT\
 RMS/Hz^{\frac{1}{2}}$&$0.3\ nT\
-RMS/Hz^{\frac{1}{2}}$&$0.03\ nT\ RMS/Hz^{\frac{1}{2}}$
-&$\pm2\ nT$&$\pm2\ nT$&$0.3\ nT\ RMS/Hz^{\frac{1}{2}}$&$\pm 0.5\ nT$\\
+RMS/Hz^{\frac{1}{2}}$&$0.03\ nT\ RMS/Hz^{\frac{1}{2}}$\\
 &&$3\times10^{11}\ nT\ RMS/Hz^{\frac{1}{2}}$&$3\times10^{11}\ nT\
 RMS/Hz^{\frac{1}{2}}$&$3\times10^{10}\ nT\
-RMS/Hz^{\frac{1}{2}}$&&&$3\times10^{11}\ nT\ RMS/Hz^{\frac{1}{2}}$&\\\hline
+RMS/Hz^{\frac{1}{2}}$\\\hline
 Sensitivity&$\pm 4 \times 10^{-5}\ V/nT $ &$\pm 4 \times 10^{-5}\ V/nT
-$&$\pm2\times 10^{-5}\ V/nT$&$\pm 10\times 10^{-5} V/nT$&&&&\\\hline
-Total Power Consumption&$300\ mW$&$200\ mW$&$825\ mW$&$900\ mW$&&&&\\\hline
-Resolution&&&&&$2\ nT$&$2\ nT$&&$10\ 000\ nT$\\\hline 
-Accuracy&&&&&$\pm1\ \%\ FS$&$\pm1\ \%\ FS$&$\pm1\ \%\ FS$&$\pm0.5 \%\ FS
-$\\\hline  
+$&$\pm2\times 10^{-5}\ V/nT$&$\pm 10\times 10^{-5} V/nT$\\\hline
+Total Power Consumption&$300\ mW$&$200\ mW$&$825\ mW$&$900\ mW$\\\hline 
+Price&&&&\\\hline
 \end{tabular}
 }
 \end{table}
-LN = low noise 
-SN = standard noise
-LSF = Least Square Fit
 \begin{table}[h!]
-\caption{\textbf{Three-Axis Fluxgate Magnetometer sensors available at
-Bartington Instruments}}
-% \label{RKF78} % title name of
+\caption{\textbf{Digital Three-Axis Fluxgate Magnetometer sensors available at
+Applied Physics Systems}}
+ \label{appliedD} % title name of
 \centering
 % centering table
 \resizebox{1.0\textwidth}{!}{%
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+\begin{tabular}{|l|l|l|l|l|}
 \hline
-Model&Mag657&Mag658&Spacemag&Mag628/629&Mag648&Mag566&&\\
-&&&&and Mag669&Mag649&\\\hline
-Anolog/Digital&Digital&Digital&&&&\\\hline
-Range&$\pm 524\ \mu T$&$\pm524.287\ \mu T$&$\pm100\ \mu T\ FS$&$\pm75\
-\mu T\ FS$&$\pm 60\ \mu T\ or\ \pm100\ \mu T$&$\pm100\ \mu T$\\\hline
-Resolution&$62.5\ pT/bit$&&&&&\\\hline
-Noise level&&&&$<8\ pT\ RMS/\surd Hz\ at\ 1Hz$&$\leqslant10\ pT\ RMS/\surd Hz\ at\
-1Hz LN$&\\
-&&&&$<4pT\ RMS/\surd Hz\ at\ 1Hz$&$Btwn\ 10\ and\ 20\ pT\ RMS/\surd Hz\ at\ 1Hz\ SN$
-&\\\hline
-Linearity error&$0.01 \%\ (LSF)$&$0.01 \%\ (LSF)$&$0.0033\ \%
-(LSF)$&$< 0.015\ \%\ FS$&$0.0033 \% \ LSF$&$<50ppm$\\\hline
-Operating temperature&$-10^\circ C\ to\ +40^\circ C$&$-30^\circ C\ to\
-+40^\circ C$&$-55^\circ C\ to\ +125^\circ C$&&$-40^\circ C\ to\ +70^\circ
-C$&$-32^\circ\ to\ +50^\circ$\\\hline
-Supply voltage&$+10\ to\ +20V$&$+10\ to\ +20V$&$\pm15V\ (5 \%)$&$\pm15V\
-(\pm 5 \%)$&$+3.5V\ to\ 15V$&$\pm4.8V\ to\ \pm5.2V$&&\\
-&&&&$+28V\ (\pm10 \%)$&&\\\hline
-Power requirement&$<1\ W$&&&$<1W$&&&&\\
-&&&&$<2W$&&$20mW$\\\hline
-Current consumption&&$65\ mA\ at\ 10\ V$&$+38\ mA, -15\ mA$&&$4\ mA\ max$
-&&&\\
-&&&&&$5.5\ mA\ max$&\\\hline
+Model&$113D$&$534D$&$539$&$1540$\\ \hline
+Range&$\pm60,000\ nT$
+&$\pm60,000\ nT$&$\pm 65,000\ nT$&$\pm 65,000\ nT$\\
+&$\pm100,000\ nT$ optional&$\pm100,000\ nT$ optional&$\pm 100,000\ nT$
+optional&\\\hline 
+Input&$+4.9\ to\ +15\ VDC\ at\ 80\ mA$
+&$+4.9\ to\ +15\ VDC\ at\ 50\ mA$&$+4.95\ to\ +9\ VDC\ at\ 50\ mA$&$+4.95\ to\
++9\ VDC\ at\ 55 mA$\\\hline
+Linearity&&&$\pm 0.1 \%\ FS$&$\pm0.05 \%\ FS$\\\hline
+Noise Level&$\pm2\ nT$&$\pm2\ nT$&$0.3\ nT\ RMS/Hz^{\frac{1}{2}}$&$\pm 0.5\ nT$\\
+&&&$3\times10^{11}\ nT\ RMS/Hz^{\frac{1}{2}}$&\\\hline
+Resolution&$2\ nT$&$2\ nT$&&$10\ 000\ nT$\\\hline 
+Accuracy&$\pm1\ \%\ FS$&$\pm1\ \%\ FS$&$\pm1\ \%\ FS$&$\pm0.5 \%\ FS
+$\\\hline
+Price&&&&\\\hline  
 \end{tabular}
 }
-\label{tab:RKF78}
 \end{table}
-Watson Industries\footnote{\url{http://www.watson-gyro.com/index.html}} has also
-developed the FGM-301 fluxgate magnetometer which, according to them has the following
-features:
+\\Table \ref{applied} lists all analog fluxgate magnetometers succeeded by Table
+\ref{appliedD}, which shows all digital fluxgate magnetometers offered by Applied
+Physics Systems (LN = low noise, SN = standard noise, LSF = Least Square Fit). A quote
+for best space qualified magnetometers from the list has been requested and awaits
+response.
+\subsection*{Metrolab}
+Metrolab\footnote{See \url{http://contact.metrolab.com/index.php?id=1}}, located in
+Geneva, Switzerland, was founded in 1985. They are the pioneers of magnetic field
+mapping and offer a line of reference-quality permanent magnets. Metrolab have the
+TFM1186 (shown in Figure \ref{TFM1186}) three-axis fluxgate magnetometer which
+measures very low fields up to 100 000 nT with 4 nT resolution and
+1 kHz bandwidth. This fluxgate magnetometer was adapted from mag649, a
+Bartington 3-axis fluxgate sensor. 
+\begin{figure}[!h]
+\centering
+\includegraphics[width =
+4.1in, height=3.0in]{/home/thinawanga/Documents/Notes/fluxgate/IMG_1026.JPG}
+\caption{\textbf{Metrolab's Three-axis Fluxgate Magnetometer, TFM1186}}
+\label{TFM1186}
+\end{figure}\\
+TFM1186 comes in two different packages, TFM1186-PC (desktop kit) and TFM1186-PDA
+(handheld kit). TFM1186-PC costs 6 370 CHF ($\approx$ R73 838.77)
+and comes with:
+\begin{itemize}
+ \item 3-axis Fluxgate Magnetometer with 3 meter cable
+ \item Separate calibration of electronics and probe
+ \item CD with acquisition software for Windows and Mac, LabVIEW source
+  code, and user’s manual
+ \item Software license from Metrolab, including free updates
+\end{itemize}
+While the TFM1186-PDA costs 8 065 CHF ($\approx$ ) and includes desktop kit TFM1186-PC,
+plus:
+\begin{itemize}
+ \item Industrial-quality PDA with heavy duty battery (2600 mAh)
+ \item Adaptor cable
+ \item Pre-installed acquisition software, with licenses from
+Metrolab including free updates, and National Instruments
+ \item CD with acquisition software for Windows, Mac and PDA
+(Windows Mobile), LabVIEW source code, and user’s
+ manual
+ \item Carrying Case
+\end{itemize}
+
+\subsection*{Wuntronic GmbH}
+The company has been working in the sale and the production of measurement and
+control devices since 1977. Based in Munich, Germany,
+Wuntronic\footnote{See \url{http://www.wuntronic.com}} offers digital and
+analog three-axis fluxgate magnetometers. The specifications of these magnetometers
+are listed in Table \ref{wuntronic}. 
+\begin{table}[h]
+\caption{\textbf{Three-Axis Fluxgate Magnetometer sensors available at Wuntronic GmbH}}
+\label{wuntronic}
+\resizebox{1.0\textwidth}{!}{%
+ \begin{tabular}{|l|l|l|l|l|l|}
+ \hline
+Model& WFG-D-130&WFG-110&WFG-120&WFG-130&WFG-140\\\hline
+Output&Digital&Analog&Analog&Analog&Analog\\
+Type&&&&&\\\hline 
+Range&$100,000\ nT$&$100,000\ nT$&$100,000\ nT$&$\pm 500,000\ nT$&$100,000\ nT$\\\hline
+Noise level&$\pm 3\ nT$&$<0.3\ nT\ RMS/Hz^{1⁄2}$&$<0.1\ nT\ RMS/Hz^{1⁄2}$&$<0.3\ nT\
+RMS/Hz^{1⁄2}$&$0.03\ nT\ RMS/Hz^{1/2}$\\\hline
+Accuracy&$\pm 1\ FS$&&&&\\\hline
+Linearity&$\pm 0.1\ FS$&$\pm 0.1\ FS$&$\pm 0.1\ FS$&$\pm 0.2$&$\pm 0.2$\\\hline
+Power&$50mA\ at\ +4.9$&$+5\ VDC\ at\ 30 mA$&$+5\ VDC\ at\ 20mA$&$+55 mA\ at\ 15V$&$+60
+mA\ at\ 15V$\\
+&$\ to\ +9\ VDC$&$-5\ VDC\ at\ 30 mA$&$-5\ VDC\ at\ -20mA$&$ -43 mA\ at\
+-15V$&$-60\ mA\ at\ -15V$\\\hline
+Operating &$-25\ to\ 70^\circ C$&&&&\\
+temperature&&&&&\\\hline
+Sensitivity&&$4\times10^{-5}V/nT$&$4\times10^{-5}V/nT$&$2\times10^{-5}
+V/nT$&$1\times10^{-4}V/nT$\\\hline
+Price&&&&&\\\hline
+ \end{tabular}}
+\end{table}
+\subsection*{Watson Industries}
+Watson Industries\footnote{See \url{http://www.watson-gyro.com/index.html}} was founded
+in Eau Claire, Wisconsin in 1980. They produce high quality solid state gyroscopes and
+are experienced in a wide range of sensor applications ranging from undersea to outer
+space. Watson Industries have developed the FGM-301 fluxgate magnetometer which,
+according to them has the following features:
 \begin{itemize}
  \item High Accuracy
  \item High Resolution
@@ -169,7 +307,8 @@ features:
  \item Two Year Warranty
  \item Engineering Support
 \end{itemize}
-A quote has been requested and the FGM-301 fluxgate specifications are listed in Figure
+A quote has been requested and awaits response. The FGM-301 fluxgate specifications are
+listed in Figure
 \ref{FGM}.
 \begin{figure}[!h]
 \centering
@@ -177,17 +316,200 @@ A quote has been requested and the FGM-301 fluxgate specifications are listed in
 \caption{\textbf{Specifications of the FGM-301 fluxgate magnetometer}}
 \label{FGM}
 \end{figure}
-Metrolab\footnote{\url{http://contact.metrolab.com/index.php?id=1}} also the
-TFM1186$\-$PC which measures very low fields up to 100 000 nT with 4 nT resolution and
-1 kHz bandwidth. This fluxgate magnetometer was adapted from mag649, a
-Bartington 3-axis fluxgate sensor. TFM1186$\-$PC costs 6 370 CHF ($\approx$ R73 838.77)
-and comes with:
+\subsection*{Macintyre Electronic Design Associates (MEDA)}
+MEDA \footnote{See \url{http://www.meda.com}} was founded in 1980 and it manufactures
+instruments and sensors for measuring weak magnetic fields in the DC to 200 kHz
+frequency range. MEDA is located in Dulles, VA., a suburb of Washington, D.C. In 1994,
+MEDA entered the satellite magnetometer market when Schonstedt Instrument Company
+(SICO) terminated their satellite magnetometer business.\\\\
+MEDA offers the TAM-1 and TAM-2 series of three-axis fluxgate magnetometers. The basic
+TAM-1 design has a long history of success in space and has been used on numerous
+civilian and military satellites since the early 1970s. TAM-2 series is a low power
+derivative of TAM-1 fluxgate magnetometer. The specifications of these magnetometers
+are listed in Table \ref{MEDA}.\\\\
+Their price and delivery depend on the required reliability of the parts and the
+required testing (vibration, thermal cycle, etc.). The unit price can range from
+USD80,000.00 to USD150,000.00 depending on the quality of the parts, testing
+requirements, analysis requirements and quantity ordered. Delivery is normally nine to
+twelve months. The sensors are under ITAR (International Traffic in Arms Regulations)
+restrictions with respect to selling and providing technical data, so an export license
+from the US State Department is required.
+\begin{table}[ht]
+\caption{\textbf{Three-Axis Fluxgate Magnetometer sensors available at MEDA}}
+\label{MEDA}
+ \begin{tabular}{|l|l|l|}
+  \hline
+  Model&TAM-1&TAM-2\\\hline
+  Range&$\pm10,000\ nT\ to \pm100,000\ nT$&$\pm10,000\ nT\ to \pm100,000\ nT$\\\hline
+  Accuracy&$\pm 1\%$&$\pm 1\%$\\\hline
+  Linearity&$0.05\%\ FS$&$0.05\%\ FS$\\\hline
+  Sensor&$ -90^\circ C\ to\ +80^\circ C$&\\
+  Temperature Range&&\\\hline
+  Electronic&$-34^\circ C\ to\ +71^\circ C$&\\
+  Temperature Range&&\\\hline
+  Voltage&$\pm2.5,\ \pm5.0,\ \pm10.0\ and\ 0\ to\ 5\ V$&$\pm2.5,\ \pm5.0,\ \pm10.0\
+and\ 0\ to\ 5\ V$\\
+  Output ranges&&\\\hline
+  Temperature range&&$-39^\circ C\ to\ +76^\circ C$\\\hline
+  Price range&$US\$80,000.00\ to\ US\$150,000.00.$&\\
+  &$\sim R836,400.00\ to\ R1,568,176.00$&$\sim R836,400.00\ to\ R1,568,176.00$\\\hline
+ \end{tabular}
+\end{table}\\
+\section*{Billingsley Aerospace $\&$ Defense}
+Billingsley Aerospace $\&$ Defense, inc\footnote{See \url{http://magnetometer.com/}}
+has 50 years of combined experience in designing and producing ultra high-reliability
+fluxgate magnetometers, gradiometers and Helmholtz Coil Systems. Their administration
+offices are located in Germantown and their laboratory in Brookeville, Maryland.
+The available fluxgate magnetometers and their specifications are shown in Table
+\ref{Billing}
+\begin{table}[ht]
+\caption{\textbf{Three-Axis Fluxgate Magnetometer sensors available at Billingsley}}
+\label{Billing}
+\centering
+ \begin{tabular}{|l|l|l|}
+\hline
+Model&TFM100G2&TFM100G4-UWH\\\hline
+Output&Analog&Analog\\
+Type&&\\\hline
+Range&$\pm100,000\ nT$&$\pm100,000\ nT\ (TFM100G4-UWH)$\\
+&&$\pm200,000\ nT\ (TFM200G4-UWH)$\\\hline
+Noise&$0.012\ nT\ RMS/Hz^{1⁄2}$&$0.02\ nT\ RMS/Hz^{1⁄2}$\\\hline
+Frequency&$3\ dB\ at\ > 500\ Hz\ Bandwidth$&$3\ dB\ at \geq 3500\ Hz$\\
+Response&&\\\hline
+Temperature&$-40^\circ C\ to\ 70^\circ C $&$-55^\circ C\ to\ +85^\circ C$\\
+Range&operating&\\\hline
+Accuracy&$\pm 0.75\%\ FS$&$\pm0.5\%\ FS$\\
+&$(0.5\%\ typical)$&\\\hline
+Linearity&$0.007\%\ FS$&$\pm0.0035\%\ FS$\\
+&&$Typical <\pm0.0015\%$\\\hline
+Sensitivity&$100,000\ nV/nT$&$100,000\ nV/nT$\\
+&&TFM100G4-UWH/\\
+&&$>200,000\ nV/nT$\\
+&&TFM200G4-UWH\\\hline
+Weight&$105g$&$1500g$\\\hline
+Size&$3.51\ cm\ \times 3.23\ cm\ \times 8.26\ cm$&$53\ cm\ \times 4.8\ cm$\\\hline
+Price&&\\\hline
+ \end{tabular}
+\end{table}
+\begin{figure}[!h]
+\centering
+\includegraphics[]{TFM100G2.jpg}
+\caption{\textbf{TFM100G2 triaxial fluxgate magnetomer}}
+\label{TFM100}
+\end{figure}\\
+The TFM100G2 (shown in Figure \ref{TFM100}) Ultra Miniature Triaxial Fluxgate
+Magnetometer is used for spacecraft
+attitude control, general magnetic measurements in the
+laboratory or field applications such as remotely piloted vehicles,
+data buoys, sounding rockets, etc. It is designed
+for the highest reliability and uses no fuses, potentiometers or
+switches. The TFM100G4-UWH is an underwater Triaxial Fluxgate Magnetometer and only
+differs with its counterpart, TFG200G4-UWH by the measuring range and sensitivity.
+\section*{STL Systemtechnik Ludwig GmbH}
+STL\footnote{See \url{http://www.stl-gmbh.de/mediaup/index.php}} was established in
+1998. Based in Konstanz, Germany, STL offers products such as High-End Digital
+Magnetometers, Multi-channel Magnetometer Systems, Magnetic Gradiometers, Aluminium
+Transparent Metal Detector, etc. A series of digital triaxial magnetometer systems for
+precise measurement of magnetic fields is available at STL. These magnetometers are
+featured with Digital High Performance Sensor Technology (D-HPST), located close to
+the fluxgate, for optimizing sensitivity, stability, dynamic range, bandwidth,
+linearity and synchroneity. The DM series magnetometer systems and their
+specifications are listed in Table \ref{DM}.
+\begin{table}[ht]
+\caption{\textbf{Three-axis digital magnetometer systems available at STL}}
+\label{DM}
+\centering
+ \begin{tabular}{|l|l|l|l|l|}
+ \hline
+Model&DM-060&DM-050&DM-010&DM-005\\\hline
+Range&$\pm1,000,000\ nT$&$\pm1,000,000\ nT$&$\pm80,000\ nT$&$\pm70,000\ nT$\\\hline
+Noise@ 1 Hz&$<0.06\ nT/Hz^{1⁄2}$&$<0.05\ nT/Hz^{1⁄2}$&$<0.02\ nT/Hz^{1⁄2}$&$<0.006\
+nT/Hz^{1⁄2}$\\\hline
+Sample rate&$0.1 Hz\ -\ 10kHz$&$0.1 Hz\ -\ 10kHz$&$0.1 Hz\ -\ 10kHz$&$0.1 Hz\ -\
+10kHz$\\\hline
+Resolution&$0.002\ nT$&$0.002\ nT$&$0.0001\ nT$&$0.0001\ nT$\\\hline
+Max. Bandwidth&$4,000\ Hz$&$500\ Hz$&$1,000\ Hz$&$3,000\ Hz$\\\hline
+Power&$<3W,\ powered$&$<2W,\ powered$&$2W,\ powered$&$<3W, powered$\\
+Requirement&by notebook&by notebook&by notebook&by notebook\\\hline
+Sensor length&300 mm&150 mm&150 mm&200 mm\\\hline
+Sensor weight&1.4 kg&0.3 kg&0.3 kg&0.5 kg\\\hline
+Price&&&&\\\hline
+ \end{tabular}
+\end{table}
+
+\newpage
+\appendix
+ \section*{Appendix A: Bartington Three-axis Fluxgate Magnetometers}
+A detailed analysis of fluxgate magnetometers listed by Bartington Instruments is
+attached in this section. The fluxgate magnetometers available at Bartington
+Instruments are:
 \begin{itemize}
- \item 3-axis Fluxgate Magnetometer with 3 meter cable
- \item Separate calibration of electronics and probe
- \item CD with acquisition software for Windows and Mac, LabVIEW source
-  code, and user’s manual
- \item Software license from Metrolab, including free updates
+ \item Mag 657
+ \item Mag 658
+ \item Spacemag
+ \item Mag 628/629 and 669
+ \item Mag 648 and 649
+ \item Mag 566
 \end{itemize}
 
+ \includepdf[offset=25.5mm -25.5mm
+,pages={1-3}]{Mag657.pdf}
+ \includepdf[offset=25.5mm -25.5mm
+,pages={1-3}]{Mag658.pdf}
+ \includepdf[offset=25.5mm -25.5mm
+,pages={1-3}]{Spacemag.pdf}
+\includepdf[offset=25.5mm  -25.5mm
+,pages={1-4}]{Mag628_Mag629.pdf}
+\includepdf[offset=25.5mm  -25.5mm
+,pages={1,3-6}]{Mag-648-649.pdf}
+ \includepdf[offset=25.5mm -25.5mm
+,pages={1-3}]{Mag566.pdf}
+\section*{Appendix B: Applied Physics Systems Fluxgate Magnetometer}
+A detailed analysis of fluxgate magnetometers listed by Applied Physics Systems is
+attached in this section. The fluxgate magnetometers available at Applied Physics
+Systems are:
+\begin{itemize}
+ \item Model 533
+ \item Model 534
+ \item Model 535
+ \item Model 536
+ \item Model 113D
+ \item Model 534D
+ \item Model 539
+ \item Model 1540
+\end{itemize}
+
+ \includepdf[offset=25.5mm -25.5mm
+,pages={-}]{Model_533.pdf}
+ \includepdf[offset=25.5mm -25.5mm
+,pages={-}]{Model_534.pdf}
+ \includepdf[offset=25.5mm -25.5mm
+,pages={-}]{Model_535.pdf}
+ \includepdf[offset=25.5mm -25.5mm
+,pages={-}]{Model_536.pdf}
+ \includepdf[offset=25.5mm -25.5mm
+,pages={-}]{Model_113D.pdf}
+ \includepdf[offset=25.5mm -25.5mm
+,pages={-}]{Model_534D.pdf}
+ \includepdf[offset=25.5mm -25.5mm
+,pages={-}]{Model_539.pdf}
+ \includepdf[offset=25.5mm -25.5mm
+,pages={-}]{Model_1540.pdf}
+
+\section*{Appendix C: Three-axis Fluxgate Magnetometers available at Wuntronic GmbH}
+ \includepdf[offset=25.5mm -25.5mm
+,pages={-}]{WFG_D_130.pdf}
+ \includepdf[offset=25.5mm -25.5mm
+,pages={-}]{WFG_110.pdf}
+ \includepdf[offset=25.5mm -25.5mm
+,pages={-}]{WFG_120.pdf}
+ \includepdf[offset=25.5mm -25.5mm
+,pages={-}]{WFG_130.pdf}
+ \includepdf[offset=25.5mm -25.5mm
+,pages={-}]{WFG_140.pdf}
+\section*{Appendix D: Three-axis Fluxgate Magnetometers available at MEDA}
+ \includepdf[offset=25.5mm -25.5mm
+,pages={-}]{tam-1.pdf}
+ \includepdf[offset=25.5mm -25.5mm
+,pages={-}]{tam-2.pdf}
 \end{document}          
